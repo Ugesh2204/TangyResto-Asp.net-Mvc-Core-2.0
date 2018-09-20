@@ -1,0 +1,12 @@
+C:\Users\Ugesh\Desktop\ASP.NETCore\asp.Core Resource\Tangy\Tangy\bin\Debug\netcoreapp2.0\Tangy.deps.json
+C:\Users\Ugesh\Desktop\ASP.NETCore\asp.Core Resource\Tangy\Tangy\bin\Debug\netcoreapp2.0\Tangy.runtimeconfig.json
+C:\Users\Ugesh\Desktop\ASP.NETCore\asp.Core Resource\Tangy\Tangy\bin\Debug\netcoreapp2.0\Tangy.runtimeconfig.dev.json
+C:\Users\Ugesh\Desktop\ASP.NETCore\asp.Core Resource\Tangy\Tangy\bin\Debug\netcoreapp2.0\Tangy.dll
+C:\Users\Ugesh\Desktop\ASP.NETCore\asp.Core Resource\Tangy\Tangy\bin\Debug\netcoreapp2.0\Tangy.pdb
+C:\Users\Ugesh\Desktop\ASP.NETCore\asp.Core Resource\Tangy\Tangy\obj\Debug\netcoreapp2.0\Tangy.csproj.CoreCompileInputs.cache
+C:\Users\Ugesh\Desktop\ASP.NETCore\asp.Core Resource\Tangy\Tangy\obj\Debug\netcoreapp2.0\Tangy.AssemblyInfoInputs.cache
+C:\Users\Ugesh\Desktop\ASP.NETCore\asp.Core Resource\Tangy\Tangy\obj\Debug\netcoreapp2.0\Tangy.AssemblyInfo.cs
+C:\Users\Ugesh\Desktop\ASP.NETCore\asp.Core Resource\Tangy\Tangy\obj\Debug\netcoreapp2.0\Tangy.dll
+C:\Users\Ugesh\Desktop\ASP.NETCore\asp.Core Resource\Tangy\Tangy\obj\Debug\netcoreapp2.0\Tangy.pdb
+C:\Users\Ugesh\Desktop\ASP.NETCore\asp.Core Resource\Tangy\Tangy\obj\Debug\netcoreapp2.0\Tangy.csprojAssemblyReference.cache
+C:\Users\Ugesh\Desktop\ASP.NETCore\asp.Core Resource\Tangy\Tangy\obj\Debug\netcoreapp2.0\UserSecretsAssemblyInfo.cs
