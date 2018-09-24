@@ -75,6 +75,12 @@ namespace Tangy.Controllers
 
 
 
+        
+
+
+
+
+
         //Get:Categories/Edit
 
         public async Task<IActionResult> Edit(int? id)
@@ -121,6 +127,40 @@ namespace Tangy.Controllers
 
             return View();
 
+        }
+
+
+        //Get:Categories/Delete
+
+        public async Task<IActionResult> Delete(int? id)
+        {
+
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var category = await _db.Category.SingleOrDefaultAsync(m => m.Id == id);
+
+            if (category == null)
+            {
+                return NotFound();
+            }
+
+
+            return View(category);
+        }
+
+        //Post:Categories/Delete
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            var category = await _db.Category.SingleOrDefaultAsync(m => m.Id == id);
+            _db.Category.Remove(category);
+            await _db.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
         }
 
 
