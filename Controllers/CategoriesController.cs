@@ -52,7 +52,6 @@ namespace Tangy.Controllers
 
 
 
-
         //Get:Categories/Detail
 
         public async Task<IActionResult> Details(int? id)
@@ -63,17 +62,66 @@ namespace Tangy.Controllers
                 return NotFound();
             }
 
-            var catagory = await _db.Category.SingleOrDefaultAsync(m => m.Id == id);
+            var category = await _db.Category.SingleOrDefaultAsync(m => m.Id == id);
 
-            if (catagory == null)
+            if (category == null)
             {
                 return NotFound();
             }
 
 
-            return View();
+            return View(category);
         }
 
+
+
+        //Get:Categories/Edit
+
+        public async Task<IActionResult> Edit(int? id)
+        {
+
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var category = await _db.Category.SingleOrDefaultAsync(m => m.Id == id);
+
+            if (category == null)
+            {
+                return NotFound();
+            }
+
+
+            return View(category);
+        }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+
+        public async Task<IActionResult> Edit(int id, Category category)
+        {
+
+            if(id != category.Id)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+               
+              _db.Update(category);
+              await _db.SaveChangesAsync();
+
+                
+             return RedirectToAction(nameof(Index));
+            }
+
+
+            return View();
+
+        }
 
 
     }
