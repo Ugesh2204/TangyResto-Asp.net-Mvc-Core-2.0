@@ -43,6 +43,7 @@ namespace Tangy.Controllers
                 SubCategory = new SubCategory(),
                 SubcategoryList = _db.SubCategory.OrderBy(p => p.Name)
                                     .Select(p => p.Name)
+                                    .Distinct()
                                     .ToList()
             };
 
@@ -109,6 +110,32 @@ namespace Tangy.Controllers
             };
 
             return View(modelVM);
+        }
+
+
+        //GET Edit
+
+        public async Task<IActionResult>Edit(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var subCategory = await _db.SubCategory.SingleOrDefaultAsync(m => m.Id == id);
+            if(subCategory == null)
+            {
+                return NotFound();
+            }
+
+            SubCategoryAndCategoryViewModel model = new SubCategoryAndCategoryViewModel()
+            {
+                CategoryList = _db.Category.ToList(),
+                SubCategory = subCategory,
+                SubcategoryList = _db.SubCategory.Select(p => p.Name).Distinct().ToList()
+            };
+
+            return View(model);
         }
     }
 }
