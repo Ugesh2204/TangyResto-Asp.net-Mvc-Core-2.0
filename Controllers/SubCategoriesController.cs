@@ -137,5 +137,73 @@ namespace Tangy.Controllers
 
             return View(model);
         }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(int id, SubCategoryAndCategoryViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var doesSubCategoryExists = _db.SubCategory.Where(s => s.Name == model.SubCategory.Name).Count();
+                var doesSubCatAndCatExists = _db.SubCategory
+                                            .Where(s => s.Name == model.SubCategory.Name
+                                            && s.CategoryId == model.SubCategory.CategoryId).Count();
+
+
+                if(doesSubCategoryExists == 0)
+                {
+                    StatusMessage = "Error : Sub Category does not exists. You cannot add a new sub Category here";
+                }
+                else
+                {
+                    if (doesSubCatAndCatExists > 0)
+                    {
+                        StatusMessage = "Error : Category and sub Category combination already exit";
+                    }
+                    else
+                    {
+                        var subCatFromDb = _db.SubCategory.Find(id);
+                        subCatFromDb.Name = model.SubCategory.Name;
+                        subCatFromDb.CategoryId = model.SubCategory.CategoryId;
+                        await _db.SaveChangesAsync();
+                        return RedirectToAction(nameof(Index));
+
+                    }
+
+                }
+
+            }
+
+            SubCategoryAndCategoryViewModel modelVM = new SubCategoryAndCategoryViewModel()
+            {
+                CategoryList = _db.Category.ToList(),
+                SubCategory = model.SubCategory,
+                SubcategoryList = _db.SubCategory.Select(p => p.Name).Distinct().ToList(),
+                StatusMessage = StatusMessage
+            };
+
+            return View(modelVM);
+        }
+
+
+        //Details
+
+        public async Task<IActionResult> Details(int? id)
+        {
+            if(id == null)
+            {
+                return NotFound();
+            }
+
+            var subCategory = await _db.SubCategory.Include(s => s.Category).SingleOrDefaultAsync(m => m.Id == id);
+            if(subCategory == null)
+            {
+                return NotFound();
+            }
+
+            return View(subCategory);
+        }
+
     }
 }
