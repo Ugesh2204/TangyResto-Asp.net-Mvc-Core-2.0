@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Tangy.Data;
 using Tangy.Models;
 using Tangy.Models.MenuItemViewModels;
@@ -33,10 +34,20 @@ namespace Tangy.Controllers
             };
         }
        
-        //Get: ManuItems
-        public IActionResult Index()
+        //Get: MenuItems
+        public async Task<IActionResult> Index()
         {
-            return View();
+            //Eager loading 
+            var menuItems = _db.MenuItem.Include(m => m.Category).Include(m => m.SubCategory);
+            return View(await menuItems.ToListAsync());
+        }
+
+
+        //Get :MenuItems create
+
+        public IActionResult Create()
+        {
+            return View(MenuItemVM);
         }
     }
 }
