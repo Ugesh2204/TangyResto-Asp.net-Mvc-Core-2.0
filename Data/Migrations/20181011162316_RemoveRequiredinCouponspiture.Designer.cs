@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Tangy.Data;
 
 namespace Tangy.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20181011162316_RemoveRequiredinCouponspiture")]
+    partial class RemoveRequiredinCouponspiture
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -207,14 +209,14 @@ namespace Tangy.Data.Migrations
 
                     b.Property<double>("Discount");
 
-                    b.Property<bool>("IsActive");
-
                     b.Property<double>("MinimumAmount");
 
                     b.Property<string>("Name")
                         .IsRequired();
 
                     b.Property<byte[]>("Picture");
+
+                    b.Property<bool>("isActive");
 
                     b.HasKey("Id");
 

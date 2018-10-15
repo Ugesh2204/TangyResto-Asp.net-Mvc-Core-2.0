@@ -9,4 +9,3 @@ C:\Users\Ugesh\Desktop\ASP.NETCore\asp.Core Resource\Tangy\Tangy\obj\Debug\netco
 C:\Users\Ugesh\Desktop\ASP.NETCore\asp.Core Resource\Tangy\Tangy\obj\Debug\netcoreapp2.0\Tangy.dll
 C:\Users\Ugesh\Desktop\ASP.NETCore\asp.Core Resource\Tangy\Tangy\obj\Debug\netcoreapp2.0\Tangy.pdb
 C:\Users\Ugesh\Desktop\ASP.NETCore\asp.Core Resource\Tangy\Tangy\obj\Debug\netcoreapp2.0\UserSecretsAssemblyInfo.cs
-C:\Users\Ugesh\Desktop\ASP.NETCore\asp.Core Resource\Tangy\Tangy\obj\Debug\netcoreapp2.0\Tangy.csprojAssemblyReference.cache
